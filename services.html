@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Services - Simbulireki Wingard | Full-Stack Development Solutions</title>
+  <meta name="description" content="Professional web development services including PHP/Yii2 development, database design, and full-stack solutions">
+  <meta name="keywords" content="PHP Development, Yii2 Framework, Web Development Services, Database Design, Full-Stack Developer">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    /* Color Override Styles */
+    :root {
+      --primary: #00d9ff;
+      --secondary: #00b8d4;
+      --accent: #00e5ff;
+      --dark: #000000;
+      --dark-light: #1a1a1a;
+      --text: #f1f5f9;
+      --text-light: #94a3b8;
+      --border: #2a2a2a;
+    }
+
+    body {
+      background: #000000;
+      color: var(--text);
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.05) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 80%, rgba(0, 229, 255, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .header {
+      background: rgba(0, 0, 0, 0.95) !important;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0, 217, 255, 0.1);
+      border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+    }
+
+    .navmenu a {
+      color: var(--text) !important;
+    }
+
+    .navmenu a:hover,
+    .navmenu a.active {
+      color: var(--primary) !important;
+    }
+
+    .header-social-links a {
+      background: rgba(0, 217, 255, 0.1) !important;
+      border: 1px solid var(--border);
+      color: var(--text) !important;
+    }
+
+    .header-social-links a:hover {
+      background: var(--primary) !important;
+      color: #000000 !important;
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 217, 255, 0.4);
+    }
+
+    .section-title h2 {
+      color: var(--primary) !important;
+    }
+
+    .section-title p {
+      color: var(--text-light) !important;
+    }
+
+    .service-item {
+      background: rgba(26, 26, 26, 0.6);
+      padding: 2.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+      height: 100%;
+    }
+
+    .service-item:hover {
+      border-color: var(--primary);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+    }
+
+    .service-icon {
+      width: 70px;
+      height: 70px;
+      background: rgba(0, 217, 255, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(0, 217, 255, 0.3);
+    }
+
+    .service-icon i {
+      font-size: 2rem;
+      color: var(--primary) !important;
+    }
+
+    .service-content h3 {
+      color: var(--text) !important;
+      margin-bottom: 1rem;
+    }
+
+    .service-content p {
+      color: var(--text-light) !important;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-features {
+      list-style: none;
+      padding: 0;
+    }
+
+    .service-features li {
+      color: var(--text-light) !important;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .service-features li i {
+      color: var(--primary) !important;
+      margin-right: 0.8rem;
+      font-size: 1.2rem;
+    }
+
+    .why-choose-card {
+      background: rgba(26, 26, 26, 0.6);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+      height: 100%;
+    }
+
+    .why-choose-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+    }
+
+    .why-choose-card i {
+      color: var(--primary) !important;
+    }
+
+    .why-choose-card h5 {
+      color: var(--text) !important;
+      margin-bottom: 0.5rem;
+    }
+
+    .why-choose-card p {
+      color: var(--text-light) !important;
+      margin: 0;
+    }
+
+    .cta-box {
+      background: rgba(0, 217, 255, 0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(0, 217, 255, 0.2);
+    }
+
+    .cta-box h3 {
+      color: var(--text) !important;
+    }
+
+    .cta-box p {
+      color: var(--text-light) !important;
+    }
+
+    .btn-primary {
+      background: var(--primary) !important;
+      color: #000000 !important;
+      border: none !important;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: var(--secondary) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 217, 255, 0.4);
+    }
+
+    .btn-outline-primary {
+      background: transparent !important;
+      color: var(--primary) !important;
+      border: 2px solid var(--primary) !important;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn-outline-primary:hover {
+      background: var(--primary) !important;
+      color: #000000 !important;
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(0, 217, 255, 0.2);
+    }
+
+    footer p,
+    footer .credits {
+      color: var(--text-light) !important;
+    }
+
+    footer .sitename {
+      color: var(--primary) !important;
+    }
+
+    .social-links a {
+      background: rgba(0, 217, 255, 0.1) !important;
+      border: 1px solid var(--border);
+      color: var(--text) !important;
+    }
+
+    .social-links a:hover {
+      background: var(--primary) !important;
+      color: #000000 !important;
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 217, 255, 0.4);
+    }
+
+    .scroll-top {
+      background: var(--primary) !important;
+      color: #000000 !important;
+    }
+
+    .scroll-top:hover {
+      background: var(--secondary) !important;
+      box-shadow: 0 5px 15px rgba(0, 217, 255, 0.4);
+    }
+  </style>
+</head>
+
+<body class="services-page">
+
+  <header id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="mailto:simbulirekiwinga@gmail.com" class="email"><i class="bi bi-envelope"></i></a>
+        <a href="https://github.com/simbulireki" class="github"><i class="bi bi-github"></i></a>
+        <a href="https://linkedin.com/in/simbulireki-wingard" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        <a href="tel:+256785380800" class="phone"><i class="bi bi-telephone"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>What I Offer</h2>
+        <p>Results-driven development services that transform business challenges into scalable, secure, and efficient web solutions. I combine technical expertise with a commitment to delivering measurable value.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row justify-content-center g-5">
+
+          <div class="col-md-6" data-aos="fade-right" data-aos-delay="100">
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="bi bi-code-square"></i>
+              </div>
+              <div class="service-content">
+                <h3>Backend Development (PHP/Yii2)</h3>
+                <p>Build robust, scalable backend systems using PHP and Yii2 Framework. I specialize in MVC architecture, RESTful API development, CRUD operations, and secure authentication systems with role-based access control. Clean, maintainable code that follows best practices and industry standards.</p>
+                <ul class="service-features">
+                  <li><i class="bi bi-check-circle"></i> Yii2 Framework Development</li>
+                  <li><i class="bi bi-check-circle"></i> RESTful API Design</li>
+                  <li><i class="bi bi-check-circle"></i> MVC Architecture</li>
+                  <li><i class="bi bi-check-circle"></i> Secure Authentication & Authorization</li>
+                </ul>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-md-6" data-aos="fade-left" data-aos-delay="100">
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="bi bi-database"></i>
+              </div>
+              <div class="service-content">
+                <h3>Database Design & Management</h3>
+                <p>Design efficient, normalized databases with PostgreSQL and MySQL. Expertise in query optimization, complex joins, data modeling, and ensuring data integrity. Create scalable database architectures that support business growth and deliver fast, reliable performance.</p>
+                <ul class="service-features">
+                  <li><i class="bi bi-check-circle"></i> PostgreSQL & MySQL</li>
+                  <li><i class="bi bi-check-circle"></i> Query Optimization</li>
+                  <li><i class="bi bi-check-circle"></i> Database Schema Design</li>
+                  <li><i class="bi bi-check-circle"></i> Data Migration & Management</li>
+                </ul>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-md-6" data-aos="fade-right" data-aos-delay="200">
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="bi bi-layout-text-window"></i>
+              </div>
+              <div class="service-content">
+                <h3>Frontend Development</h3>
+                <p>Create responsive, user-friendly interfaces using JavaScript, HTML5, CSS3, and Bootstrap. Focus on cross-device compatibility, intuitive user experiences, and seamless frontend-backend integration. Build interfaces that are both beautiful and functional.</p>
+                <ul class="service-features">
+                  <li><i class="bi bi-check-circle"></i> Responsive Web Design</li>
+                  <li><i class="bi bi-check-circle"></i> JavaScript & DOM Manipulation</li>
+                  <li><i class="bi bi-check-circle"></i> Bootstrap Framework</li>
+                  <li><i class="bi bi-check-circle"></i> Cross-Browser Compatibility</li>
+                </ul>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-md-6" data-aos="fade-left" data-aos-delay="200">
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="bi bi-laptop"></i>
+              </div>
+              <div class="service-content">
+                <h3>Full-Stack Web Applications</h3>
+                <p>End-to-end development of complete web applications including board portals, management systems, and business automation tools. Handle everything from database architecture to user interface, ensuring cohesive, production-ready solutions that deliver business value.</p>
+                <ul class="service-features">
+                  <li><i class="bi bi-check-circle"></i> Complete System Development</li>
+                  <li><i class="bi bi-check-circle"></i> Business Process Automation</li>
+                  <li><i class="bi bi-check-circle"></i> Role-Based Access Systems</li>
+                  <li><i class="bi bi-check-circle"></i> Reporting & Analytics</li>
+                </ul>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-md-6" data-aos="fade-right" data-aos-delay="300">
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="bi bi-git"></i>
+              </div>
+              <div class="service-content">
+                <h3>Version Control & Collaboration</h3>
+                <p>Implement proper Git workflows for code collaboration and version control. Experience with GitHub, code reviews, branching strategies, and agile development methodologies. Ensure clean commit history and efficient team collaboration on software projects.</p>
+                <ul class="service-features">
+                  <li><i class="bi bi-check-circle"></i> Git & GitHub</li>
+                  <li><i class="bi bi-check-circle"></i> Code Review & Quality Assurance</li>
+                  <li><i class="bi bi-check-circle"></i> Agile Methodology</li>
+                  <li><i class="bi bi-check-circle"></i> Team Collaboration</li>
+                </ul>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-md-6" data-aos="fade-left" data-aos-delay="300">
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="bi bi-tools"></i>
+              </div>
+              <div class="service-content">
+                <h3>System Maintenance & Debugging</h3>
+                <p>Debug, test, and optimize existing applications for better performance and security. Troubleshoot issues, implement bug fixes, and enhance system functionality. Provide ongoing technical support and system documentation for long-term maintainability.</p>
+                <ul class="service-features">
+                  <li><i class="bi bi-check-circle"></i> Application Debugging</li>
+                  <li><i class="bi bi-check-circle"></i> Performance Optimization</li>
+                  <li><i class="bi bi-check-circle"></i> Security Enhancement</li>
+                  <li><i class="bi bi-check-circle"></i> Technical Documentation</li>
+                </ul>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+        <!-- Why Choose Me Section -->
+        <div class="row mt-5 pt-5">
+          <div class="col-12 text-center mb-4" data-aos="fade-up">
+            <h3>Why Work With Me?</h3>
+            <p class="lead">I bring more than just code—I deliver solutions that drive results</p>
+          </div>
+          
+          <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="why-choose-card text-center p-4">
+              <i class="bi bi-lightbulb display-4 mb-3"></i>
+              <h5>Problem Solver</h5>
+              <p>Analytical approach to complex challenges</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="why-choose-card text-center p-4">
+              <i class="bi bi-clock-history display-4 mb-3"></i>
+              <h5>Reliable & Timely</h5>
+              <p>Committed to deadlines and deliverables</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="300">
+            <div class="why-choose-card text-center p-4">
+              <i class="bi bi-shield-check display-4 mb-3"></i>
+              <h5>Security-First</h5>
+              <p>Secure coding practices and data protection</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="400">
+            <div class="why-choose-card text-center p-4">
+              <i class="bi bi-arrow-up-circle display-4 mb-3"></i>
+              <h5>Continuous Learner</h5>
+              <p>Always updating skills with latest tech</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="row mt-5">
+          <div class="col-12 text-center" data-aos="fade-up">
+            <div class="cta-box p-5">
+              <h3 class="mb-3">Ready to Start Your Project?</h3>
+              <p class="mb-4">Let's discuss how I can help bring your ideas to life with clean, efficient, and scalable code.</p>
+              <a href="contact.html" class="btn btn-primary btn-lg me-3">Get In Touch</a>
+              <a href="portfolio.html" class="btn btn-outline-primary btn-lg">View My Work</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Simbulireki Wingard</strong> <span>All Rights Reserved<br></span></p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://github.com/simbulireki"><i class="bi bi-github"></i></a>
+        <a href="https://linkedin.com/in/simbulireki-wingard"><i class="bi bi-linkedin"></i></a>
+        <a href="mailto:simbulirekiwinga@gmail.com"><i class="bi bi-envelope"></i></a>
+        <a href="tel:+256785380800"><i class="bi bi-telephone"></i></a>
+      </div>
+      <div class="credits">
+        Kampala, Uganda | simbulirekiwinga@gmail.com | +256 785 380800
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

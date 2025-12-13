@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Hostel Management System - Simbulireki Wingard</title>
+  <meta name="description" content="Accommodation management solution with room allocation, booking management, and payment tracking">
+  <meta name="keywords" content="Hostel Management, PHP, MySQL, Accommodation Software">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body class="portfolio-details-page">
+
+  <header id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="mailto:simbulirekiwinga@gmail.com" class="email"><i class="bi bi-envelope"></i></a>
+        <a href="https://github.com/simbulireki" class="github"><i class="bi bi-github"></i></a>
+        <a href="https://linkedin.com/in/simbulireki-wingard" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        <a href="tel:+256785380800" class="phone"><i class="bi bi-telephone"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Portfolio Details Section -->
+    <section id="portfolio-details" class="portfolio-details section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Project Details</h2>
+        <p>A comprehensive hostel accommodation management system that streamlines room allocation, booking processes, payment tracking, and resident record management for educational institutions and commercial hostels.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+          <div class="col-lg-6" data-aos="fade-right">
+            <div class="portfolio-details-media">
+              <div class="main-image">
+                <div class="portfolio-details-slider swiper init-swiper" data-aos="zoom-in">
+                  <script type="application/json" class="swiper-config">
+                    {
+                      "loop": true,
+                      "speed": 1000,
+                      "autoplay": {
+                        "delay": 6000
+                      },
+                      "effect": "creative",
+                      "creativeEffect": {
+                        "prev": {
+                          "shadow": true,
+                          "translate": [0, 0, -400]
+                        },
+                        "next": {
+                          "translate": ["100%", 0, 0]
+                        }
+                      },
+                      "slidesPerView": 1,
+                      "navigation": {
+                        "nextEl": ".swiper-button-next",
+                        "prevEl": ".swiper-button-prev"
+                      }
+                    }
+                  </script>
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img src="assets/img/portfolio/portfolio-3.webp" alt="Hostel Dashboard" class="img-fluid">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/portfolio/portfolio-8.webp" alt="Room Allocation" class="img-fluid">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/portfolio/portfolio-10.webp" alt="Payment Tracking" class="img-fluid">
+                    </div>
+                  </div>
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
+                </div>
+              </div>
+
+              <div class="thumbnail-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="row g-2 mt-3">
+                  <div class="col-3">
+                    <img src="assets/img/portfolio/portfolio-4.webp" alt="Booking Interface" class="img-fluid glightbox">
+                  </div>
+                  <div class="col-3">
+                    <img src="assets/img/portfolio/portfolio-5.webp" alt="Resident Records" class="img-fluid glightbox">
+                  </div>
+                  <div class="col-3">
+                    <img src="assets/img/portfolio/portfolio-9.webp" alt="Reports" class="img-fluid glightbox">
+                  </div>
+                  <div class="col-3">
+                    <img src="assets/img/portfolio/portfolio-12.webp" alt="Mobile View" class="img-fluid glightbox">
+                  </div>
+                </div>
+              </div>
+
+              <div class="tech-stack-badges" data-aos="fade-up" data-aos-delay="300">
+                <span>PHP</span>
+                <span>MySQL</span>
+                <span>Bootstrap</span>
+                <span>JavaScript</span>
+                <span>CRUD Operations</span>
+                <span>Responsive Design</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-left">
+            <div class="portfolio-details-content">
+              <div class="project-meta">
+                <div class="badge-wrapper">
+                  <span class="project-badge">Management System</span>
+                </div>
+                <div class="date-client">
+                  <div class="meta-item">
+                    <i class="bi bi-calendar-check"></i>
+                    <span>2022</span>
+                  </div>
+                  <div class="meta-item">
+                    <i class="bi bi-buildings"></i>
+                    <span>University Project</span>
+                  </div>
+                </div>
+              </div>
+
+              <h2 class="project-title">Hostel Management System</h2>
+
+              <div class="project-website">
+                <i class="bi bi-github"></i>
+                <a href="https://github.com/simbulireki" target="_blank">View on GitHub</a>
+              </div>
+
+              <div class="project-overview">
+                <p class="lead">
+                  A robust hostel management solution that digitalizes accommodation operations, from room booking and allocation to payment processing and maintenance requests, providing a seamless experience for both administrators and residents.
+                </p>
+
+                <div class="accordion project-accordion" id="portfolio-details-projectAccordion">
+                  <div class="accordion-item" data-aos="fade-up">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#portfolio-details-collapse-1" aria-expanded="true" aria-controls="collapseOne">
+                        <i class="bi bi-clipboard-data me-2"></i> Project Overview
+                      </button>
+                    </h2>
+                    <div id="portfolio-details-collapse-1" class="accordion-collapse collapse show" data-bs-parent="#portfolio-details-projectAccordion">
+                      <div class="accordion-body">
+                        <p>Developed a complete hostel management system using PHP and MySQL with Bootstrap for responsive design. The system handles room inventory management, student/resident registration, automated room allocation based on preferences and availability, payment tracking with billing history, and maintenance request management. Features an intuitive admin panel for managing multiple hostel blocks, room types, and pricing structures.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#portfolio-details-collapse-2" aria-expanded="false" aria-controls="collapseTwo">
+                        <i class="bi bi-exclamation-diamond me-2"></i> The Challenge
+                      </button>
+                    </h2>
+                    <div id="portfolio-details-collapse-2" class="accordion-collapse collapse" data-bs-parent="#portfolio-details-projectAccordion">
+                      <div class="accordion-body">
+                        <p>Hostel administrators faced difficulties managing room occupancy, tracking payments, handling booking conflicts, and maintaining accurate resident records across multiple buildings. Manual processes led to double-bookings, payment discrepancies, and poor utilization of available spaces. The system needed to prevent overbooking, provide real-time availability status, manage different room categories, and generate comprehensive occupancy and financial reports.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#portfolio-details-collapse-3" aria-expanded="false" aria-controls="collapseThree">
+                        <i class="bi bi-award me-2"></i> The Solution
+                      </button>
+                    </h2>
+                    <div id="portfolio-details-collapse-3" class="accordion-collapse collapse" data-bs-parent="#portfolio-details-projectAccordion">
+                      <div class="accordion-body">
+                        <p>Created an intuitive web-based platform with real-time room availability tracking and automated allocation algorithms that prevent double-bookings. Implemented a comprehensive payment module with receipt generation and payment history. Built efficient database queries for quick search and filtering of rooms by type, block, and availability. Developed a mobile-responsive interface allowing residents to check room status, make payments, and submit maintenance requests from any device.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-features" data-aos="fade-up" data-aos-delay="300">
+                <h3><i class="bi bi-stars"></i> Key Features</h3>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <ul class="feature-list">
+                      <li><i class="bi bi-check2-circle"></i> Room Allocation Management</li>
+                      <li><i class="bi bi-check2-circle"></i> Booking & Reservation System</li>
+                      <li><i class="bi bi-check2-circle"></i> Payment Tracking & Receipts</li>
+                      <li><i class="bi bi-check2-circle"></i> Resident Record Management</li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6">
+                    <ul class="feature-list">
+                      <li><i class="bi bi-check2-circle"></i> Real-time Availability Status</li>
+                      <li><i class="bi bi-check2-circle"></i> Maintenance Request System</li>
+                      <li><i class="bi bi-check2-circle"></i> Occupancy Reports</li>
+                      <li><i class="bi bi-check2-circle"></i> Multiple Hostel Support</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cta-buttons" data-aos="fade-up" data-aos-delay="400">
+                <a href="contact.html" class="btn-view-project">Discuss Similar Project</a>
+                <a href="portfolio-details-ecommerce.html" class="btn-next-project">Next Project <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Details Section -->
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Simbulireki Wingard</strong> <span>All Rights Reserved<br></span></p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://github.com/simbulireki"><i class="bi bi-github"></i></a>
+        <a href="https://linkedin.com/in/simbulireki-wingard"><i class="bi bi-linkedin"></i></a>
+        <a href="mailto:simbulirekiwinga@gmail.com"><i class="bi bi-envelope"></i></a>
+        <a href="tel:+256785380800"><i class="bi bi-telephone"></i></a>
+      </div>
+      <div class="credits">
+        Kampala, Uganda | simbulirekiwinga@gmail.com | +256 785 380800
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

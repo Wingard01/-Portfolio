@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Resume - Simbulireki Wingard</title>
+  <meta name="description" content="Professional resume of Simbulireki Wingard - Computer Science Graduate and Software Developer">
+  <meta name="keywords" content="Software Developer, PHP, Yii2, Python, Django, Web Development">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --background-color: #ffffff;
+      --default-color: #212529;
+      --heading-color: #2c3e50;
+      --accent-color: #00d9ff;
+      --surface-color: #ffffff;
+      --contrast-color: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: var(--default-color);
+      background-color: var(--background-color);
+      line-height: 1.6;
+    }
+
+    .header {
+      background-color: var(--surface-color);
+      padding: 20px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navmenu ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+    }
+
+    .navmenu a {
+      color: var(--default-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .navmenu a:hover,
+    .navmenu a.active {
+      color: var(--accent-color);
+    }
+
+    .header-social-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .header-social-links a {
+      color: var(--default-color);
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+
+    .header-social-links a:hover {
+      color: var(--accent-color);
+    }
+
+    .main {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--heading-color);
+      margin-bottom: 20px;
+    }
+
+    .section-title p {
+      font-size: 1.1rem;
+      color: #6c757d;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .resume-item {
+      margin-bottom: 40px;
+    }
+
+    .resume-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--heading-color);
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid var(--accent-color);
+    }
+
+    .resume-content {
+      background-color: #f8f9fa;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .education-item,
+    .experience-item {
+      margin-bottom: 30px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    .education-item:last-child,
+    .experience-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .education-item h4,
+    .experience-item h4 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      margin-bottom: 8px;
+    }
+
+    .education-item h5,
+    .experience-item h5 {
+      font-size: 1rem;
+      color: #6c757d;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .institution,
+    .company {
+      font-style: italic;
+      color: #495057;
+      margin-bottom: 10px;
+    }
+
+    .experience-item ul {
+      margin-top: 15px;
+      padding-left: 20px;
+    }
+
+    .experience-item li {
+      margin-bottom: 8px;
+      color: #495057;
+    }
+
+    .skill-item {
+      margin-bottom: 25px;
+    }
+
+    .skill-item h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin-bottom: 10px;
+    }
+
+    .progress {
+      height: 12px;
+      background-color: #e9ecef;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      background: linear-gradient(90deg, #00b8d4, var(--accent-color));
+      transition: width 1s ease;
+    }
+
+    .footer {
+      background-color: #2c3e50;
+      color: var(--contrast-color);
+      padding: 40px 0 20px;
+      margin-top: 60px;
+    }
+
+    .footer .copyright {
+      margin-bottom: 20px;
+    }
+
+    .footer .social-links {
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .footer .social-links a {
+      color: var(--contrast-color);
+      font-size: 20px;
+      transition: color 0.3s;
+    }
+
+    .footer .social-links a:hover {
+      color: var(--accent-color);
+    }
+
+    .footer .credits {
+      font-size: 0.9rem;
+      color: #bdc3c7;
+    }
+
+    @media (max-width: 768px) {
+      .navmenu ul {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+      }
+
+      .resume-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="resume-page">
+
+  <header id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html" class="active">Resume</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="mailto:simbulirekiwinga@gmail.com"><i class="bi bi-envelope"></i></a>
+        <a href="https://github.com/simbulireki"><i class="bi bi-github"></i></a>
+        <a href="https://linkedin.com/in/simbulireki-wingard"><i class="bi bi-linkedin"></i></a>
+        <a href="tel:+256785380800"><i class="bi bi-telephone"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume section">
+
+      <!-- Section Title -->
+      <div class="container section-title">
+        <h2>Resume</h2>
+        <p>Self-motivated Computer Science graduate with hands-on experience in web development, frontend and backend systems, and database management. Proven ability in building secure, scalable applications using PHP and Python frameworks.</p>
+      </div>
+
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-6">
+
+            <!-- Education Section -->
+            <div class="resume-item">
+              <h3 class="resume-title">Education</h3>
+
+              <div class="resume-content">
+                <article class="education-item">
+                  <h4>Bachelor of Science in Computer Science</h4>
+                  <h5>Graduated: February 2025</h5>
+                  <p class="institution"><em>Metropolitan International University</em></p>
+                  <p><strong>CGPA: 4.0/5.0</strong></p>
+                  <p>Comprehensive study in software development, database systems, web technologies, and computer science fundamentals. Completed multiple practical projects demonstrating proficiency in modern development frameworks and methodologies.</p>
+                </article>
+              </div>
+            </div>
+
+            <!-- Technical Skills Section -->
+            <div class="resume-item skills-animation">
+              <h3 class="resume-title">Technical Skills</h3>
+
+              <div class="resume-content">
+                <div class="skill-item">
+                  <h4>PHP & Yii2 Framework</h4>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <h4>Python & Django</h4>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <h4>JavaScript, HTML & CSS</h4>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 88%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <h4>Database Management (MySQL, PostgreSQL)</h4>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 87%" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <h4>Git/GitHub & Version Control</h4>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Certifications Section -->
+            <div class="resume-item">
+              <h3 class="resume-title">Certifications</h3>
+
+              <div class="resume-content">
+                <article class="education-item">
+                  <h4>Software Development Professional Certificate</h4>
+                  <h5>2025</h5>
+                  <p class="institution"><em>ServiceCops Limited</em></p>
+                  <p>Completed comprehensive training program covering modern web development practices, framework implementation, and professional software engineering standards.</p>
+                </article>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-6">
+            <!-- Experience Section -->
+            <div class="resume-item">
+              <h3 class="resume-title">Professional Experience</h3>
+
+              <div class="resume-content">
+                <article class="experience-item">
+                  <h4>Software Development Graduate Trainee</h4>
+                  <h5>August 2025 – November 2025</h5>
+                  <p class="company"><em>ServiceCops Limited, Kampala</em></p>
+                  <ul>
+                    <li>Developed and maintained web applications using Yii2 Framework with Bootstrap for responsive UI</li>
+                    <li>Worked with PostgreSQL databases including query writing, optimization, and data management</li>
+                    <li>Implemented CRUD functionalities and ensured smooth frontend-backend integration</li>
+                    <li>Debugged, tested, and optimized code following best practices for security and scalability</li>
+                    <li>Collaborated with team members to analyze requirements and deliver technical solutions</li>
+                    <li>Used Git for version control and code collaboration</li>
+                    <li>Documented technical procedures and system configurations</li>
+                  </ul>
+                </article>
+
+                <article class="experience-item">
+                  <h4>IT Support Intern</h4>
+                  <h5>May 2024 – August 2024</h5>
+                  <p class="company"><em>Web-Infor-Net Limited, Kampala</em></p>
+                  <ul>
+                    <li>Assisted in troubleshooting and resolving software and hardware issues</li>
+                    <li>Provided daily technical support to internal teams and external clients</li>
+                    <li>Helped maintain network infrastructure and monitored system functionality</li>
+                    <li>Supported web development tasks using WordPress</li>
+                    <li>Documented support procedures and technical solutions</li>
+                  </ul>
+                </article>
+              </div>
+            </div>
+
+            <!-- Projects Section -->
+            <div class="resume-item">
+              <h3 class="resume-title">Academic Projects</h3>
+
+              <div class="resume-content">
+                <article class="experience-item">
+                  <h4>Board Portal System</h4>
+                  <h5>Yii2 Framework & Bootstrap</h5>
+                  <ul>
+                    <li>Developed secure board portal with role-based access control and dynamic dashboards</li>
+                    <li>Managed user and company modules ensuring accurate data handling and reporting</li>
+                    <li>Implemented authentication system with session management and audit logging</li>
+                    <li>Applied MVC architecture and created responsive UI for cross-device compatibility</li>
+                  </ul>
+                </article>
+
+                <article class="experience-item">
+                  <h4>School Management System</h4>
+                  <h5>PHP & MySQL</h5>
+                  <ul>
+                    <li>Built comprehensive system to streamline student registration, class management, and academic tracking</li>
+                    <li>Designed responsive interfaces and implemented database-driven features</li>
+                    <li>Created complex queries for report generation and data analysis</li>
+                    <li>Strengthened expertise in web application development and frontend-backend integration</li>
+                  </ul>
+                </article>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="row mt-5">
+          <div class="col-12">
+            <div class="resume-item">
+              <h3 class="resume-title">Contact Information</h3>
+              <div class="resume-content">
+                <p><strong>Location:</strong> Wandegeya, Kampala – Uganda</p>
+                <p><strong>Phone:</strong> 0785380800</p>
+                <p><strong>Email:</strong> simbulirekiwinga@gmail.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="copyright text-center">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Simbulireki Wingard</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://github.com/simbulireki"><i class="bi bi-github"></i></a>
+        <a href="https://linkedin.com/in/simbulireki-wingard"><i class="bi bi-linkedin"></i></a>
+        <a href="mailto:simbulirekiwinga@gmail.com"><i class="bi bi-envelope"></i></a>
+        <a href="tel:+256785380800"><i class="bi bi-telephone"></i></a>
+      </div>
+      <div class="credits">
+        Kampala, Uganda | simbulirekiwinga@gmail.com | +256 785 380800
+      </div>
+    </div>
+
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
