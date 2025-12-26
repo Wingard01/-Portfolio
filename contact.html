@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -236,20 +236,38 @@
       box-shadow: 0 4px 12px rgba(0, 217, 255, 0.4);
     }
 
+    .contact-form .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
     .loading,
     .error-message,
     .sent-message {
       display: none;
-      color: var(--text-light);
+      padding: 1rem;
       margin-bottom: 1rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .loading {
+      background: rgba(0, 217, 255, 0.1);
+      color: var(--primary);
+      border: 1px solid rgba(0, 217, 255, 0.3);
     }
 
     .sent-message {
-      color: var(--primary) !important;
+      background: rgba(0, 255, 136, 0.1);
+      color: #00ff88;
+      border: 1px solid rgba(0, 255, 136, 0.3);
     }
 
     .error-message {
-      color: #ff4444 !important;
+      background: rgba(255, 68, 68, 0.1);
+      color: #ff4444;
+      border: 1px solid rgba(255, 68, 68, 0.3);
     }
 
     .quick-contact-card {
@@ -437,17 +455,17 @@
               <h3>Send Me a Message</h3>
               <p>Have a project in mind? Fill out the form below and I'll respond ASAP.</p>
 
-              <!-- UPDATED FORM -->
-              <form action="forms/contact.php" method="POST" class="php-email-form">
+              <!-- EmailJS Contact Form -->
+              <form id="contact-form" class="php-email-form">
 
                 <div class="row gy-4">
 
                   <div class="col-md-6">
-                    <input type="text" class="form-control" name="name" placeholder="Your Name *" required>
+                    <input type="text" class="form-control" name="from_name" placeholder="Your Name *" required>
                   </div>
 
                   <div class="col-md-6">
-                    <input type="email" class="form-control" name="email" placeholder="Your Email *" required>
+                    <input type="email" class="form-control" name="from_email" placeholder="Your Email *" required>
                   </div>
 
                   <div class="col-md-6">
@@ -467,10 +485,16 @@
                   </div>
 
                   <div class="col-12 text-center">
-                    <div class="loading">Sending...</div>
+                    <div class="loading">
+                      <i class="bi bi-hourglass-split"></i> Sending your message...
+                    </div>
                     <div class="error-message"></div>
-                    <div class="sent-message">Thank you! I will reply within 24 hours.</div>
-                    <button type="submit" class="btn">Send Message <i class="bi bi-send"></i></button>
+                    <div class="sent-message">
+                      <i class="bi bi-check-circle"></i> Thank you! Your message has been sent successfully. I'll reply within 24 hours.
+                    </div>
+                    <button type="submit" class="btn" id="submit-btn">
+                      Send Message <i class="bi bi-send"></i>
+                    </button>
                   </div>
 
                 </div>
@@ -550,8 +574,8 @@
 
   <div id="preloader"></div>
 
+  <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
@@ -561,7 +585,76 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- EmailJS Contact Form Handler -->
+  <script>
+    // Initialize EmailJS
+    (function() {
+      // IMPORTANT: Replace these with your actual EmailJS credentials
+      emailjs.init("zC-63oNkWdkqx5haH"); // Get this from EmailJS Dashboard
+    })();
+
+    // Handle form submission
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contact-form');
+      const submitBtn = document.getElementById('submit-btn');
+      const loading = form.querySelector('.loading');
+      const errorMessage = form.querySelector('.error-message');
+      const sentMessage = form.querySelector('.sent-message');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Show loading state
+        loading.style.display = 'block';
+        errorMessage.style.display = 'none';
+        sentMessage.style.display = 'none';
+        submitBtn.disabled = true;
+
+        // Get form data
+        const templateParams = {
+          from_name: form.querySelector('[name="from_name"]').value,
+          from_email: form.querySelector('[name="from_email"]').value,
+          company: form.querySelector('[name="company"]').value || 'Not provided',
+          phone: form.querySelector('[name="phone"]').value || 'Not provided',
+          subject: form.querySelector('[name="subject"]').value,
+          message: form.querySelector('[name="message"]').value
+        };
+
+        // Send email using EmailJS
+        // IMPORTANT: Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual IDs
+        emailjs.send('service_9mhjaua', 'template_bbrlnwv', templateParams)
+          .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            loading.style.display = 'none';
+            sentMessage.style.display = 'block';
+            submitBtn.disabled = false;
+            form.reset();
+
+            // Hide success message after 5 seconds
+            setTimeout(function() {
+              sentMessage.style.display = 'none';
+            }, 5000);
+          }, function(error) {
+            console.log('FAILED...', error);
+            loading.style.display = 'none';
+            errorMessage.textContent = 'Oops! Something went wrong. Please try again or email me directly at simbulirekiwinga@gmail.com';
+            errorMessage.style.display = 'block';
+            submitBtn.disabled = false;
+
+            // Hide error message after 8 seconds
+            setTimeout(function() {
+              errorMessage.style.display = 'none';
+            }, 8000);
+          });
+      });
+    });
+  </script>
 
 </body>
 </html>
