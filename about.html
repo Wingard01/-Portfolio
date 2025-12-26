@@ -410,6 +410,74 @@
       background: var(--secondary) !important;
       box-shadow: 0 5px 15px rgba(0, 217, 255, 0.4);
     }
+
+    /* Hamburger Menu */
+.mobile-nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+  background: none;
+  border: none;
+}
+
+.mobile-nav-toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 3px;
+  transition: all 0.3s;
+  display: block;
+}
+
+/* Animation for X shape */
+.mobile-nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.mobile-nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+@media (max-width: 768px) {
+  .mobile-nav-toggle {
+    display: flex;
+  }
+
+  .navmenu ul {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.98);
+    backdrop-filter: blur(10px);
+    width: 250px;
+    padding: 2rem;
+    gap: 1.5rem;
+    box-shadow: -5px 0 30px rgba(0, 217, 255, 0.3);
+    border-left: 1px solid rgba(0, 217, 255, 0.3);
+    transition: right 0.3s ease-in-out;
+    height: calc(100vh - 70px);
+    z-index: 1000;
+  }
+
+  .navmenu ul.active {
+    right: 0;
+  }
+
+  .navmenu ul li a {
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+    display: block;
+  }
+}
   </style>
 </head>
 
@@ -438,6 +506,12 @@
       </div>
 
     </div>
+
+    <button class="mobile-nav-toggle" id="mobile-nav-toggle">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
   </header>
 
   <main class="main">
@@ -822,6 +896,31 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>// Mobile menu toggle
+const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+const navMenu = document.querySelector('.navmenu ul');
+
+mobileNavToggle.addEventListener('click', function() {
+  this.classList.toggle('active');
+  navMenu.classList.toggle('active');
+});
+
+// Close menu when clicking on a link
+document.querySelectorAll('.navmenu ul li a').forEach(link => {
+  link.addEventListener('click', function() {
+    mobileNavToggle.classList.remove('active');
+    navMenu.classList.remove('active');
+  });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', function(event) {
+  if (!mobileNavToggle.contains(event.target) && !navMenu.contains(event.target)) {
+    mobileNavToggle.classList.remove('active');
+    navMenu.classList.remove('active');
+  }
+});
+</script>
 
 </body>
 

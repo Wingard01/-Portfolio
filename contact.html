@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -86,6 +86,73 @@
       border-color: var(--primary);
       transform: translateY(-3px);
       box-shadow: 0 5px 15px rgba(0, 217, 255, 0.4);
+    }
+
+    /* Hamburger Menu */
+    .mobile-nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 1001;
+      background: none;
+      border: none;
+    }
+
+    .mobile-nav-toggle span {
+      width: 25px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 3px;
+      transition: all 0.3s;
+      display: block;
+    }
+
+    .mobile-nav-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .mobile-nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-nav-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    @media (max-width: 768px) {
+      .mobile-nav-toggle {
+        display: flex;
+      }
+
+      .navmenu ul {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.98);
+        backdrop-filter: blur(10px);
+        width: 250px;
+        padding: 2rem;
+        gap: 1.5rem;
+        box-shadow: -5px 0 30px rgba(0, 217, 255, 0.3);
+        border-left: 1px solid rgba(0, 217, 255, 0.3);
+        transition: right 0.3s ease-in-out;
+        height: calc(100vh - 70px);
+        z-index: 1000;
+      }
+
+      .navmenu ul.active {
+        right: 0;
+      }
+
+      .navmenu ul li a {
+        font-size: 1.1rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+        display: block;
+      }
     }
 
     .section-title h2 {
@@ -378,16 +445,14 @@
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="contact.html" class="active">Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
+   </nav>
 
-      <div class="header-social-links">
-        <a href="mailto:simbulirekiwinga@gmail.com" class="email"><i class="bi bi-envelope"></i></a>
-        <a href="https://github.com/simbulireki" class="github"><i class="bi bi-github"></i></a>
-        <a href="https://linkedin.com/in/simbulireki-wingard" class="linkedin"><i class="bi bi-linkedin"></i></a>
-        <a href="tel:+256785380800" class="phone"><i class="bi bi-telephone"></i></a>
+         <div class="social-icons">
+        <a href="https://github.com/Wingard01" title="GitHub">◉</a>
+        <a href="https://linkedin.com/in/eng-wingard" title="LinkedIn">in</a>
+        <a href="tel:+256785380800" title="Phone">☎</a>
       </div>
-
+  
     </div>
   </header>
 
@@ -589,72 +654,34 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
   <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+     <script src="assets/js/main.js"></script> 
 
-  <!-- EmailJS Contact Form Handler -->
+  <!-- Mobile Menu Script -->
   <script>
-    // Initialize EmailJS
-    (function() {
-      // IMPORTANT: Replace these with your actual EmailJS credentials
-      emailjs.init("zC-63oNkWdkqx5haH"); // Get this from EmailJS Dashboard
-    })();
+    // Mobile menu toggle
+    const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+    const navMenu = document.querySelector('.navmenu ul');
 
-    // Handle form submission
-    document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('contact-form');
-      const submitBtn = document.getElementById('submit-btn');
-      const loading = form.querySelector('.loading');
-      const errorMessage = form.querySelector('.error-message');
-      const sentMessage = form.querySelector('.sent-message');
+    mobileNavToggle.addEventListener('click', function() {
+      this.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
 
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        // Show loading state
-        loading.style.display = 'block';
-        errorMessage.style.display = 'none';
-        sentMessage.style.display = 'none';
-        submitBtn.disabled = true;
-
-        // Get form data
-        const templateParams = {
-          from_name: form.querySelector('[name="from_name"]').value,
-          from_email: form.querySelector('[name="from_email"]').value,
-          company: form.querySelector('[name="company"]').value || 'Not provided',
-          phone: form.querySelector('[name="phone"]').value || 'Not provided',
-          subject: form.querySelector('[name="subject"]').value,
-          message: form.querySelector('[name="message"]').value
-        };
-
-        // Send email using EmailJS
-        // IMPORTANT: Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual IDs
-        emailjs.send('service_9mhjaua', 'template_4e2sgmw', templateParams)
-          .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-            loading.style.display = 'none';
-            sentMessage.style.display = 'block';
-            submitBtn.disabled = false;
-            form.reset();
-
-            // Hide success message after 5 seconds
-            setTimeout(function() {
-              sentMessage.style.display = 'none';
-            }, 5000);
-          }, function(error) {
-            console.log('FAILED...', error);
-            loading.style.display = 'none';
-            errorMessage.textContent = 'Oops! Something went wrong. Please try again or email me directly at simbulirekiwinga@gmail.com';
-            errorMessage.style.display = 'block';
-            submitBtn.disabled = false;
-
-            // Hide error message after 8 seconds
-            setTimeout(function() {
-              errorMessage.style.display = 'none';
-            }, 8000);
-          });
+    // Close menu when clicking on a link
+    document.querySelectorAll('.navmenu ul li a').forEach(link => {
+      link.addEventListener('click', function() {
+        mobileNavToggle.classList.remove('active');
+        navMenu.classList.remove('active');
       });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!mobileNavToggle.contains(event.target) && !navMenu.contains(event.target)) {
+        mobileNavToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+      }
     });
   </script>
 
-</body>
 </html>

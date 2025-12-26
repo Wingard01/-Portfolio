@@ -119,6 +119,36 @@
       box-shadow: 0 5px 15px rgba(0, 217, 255, 0.4);
     }
 
+    /* Hamburger Menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 1001;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 3px;
+      transition: all 0.3s;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
     /* Hero Section */
     .hero {
       min-height: 100vh;
@@ -370,8 +400,34 @@
 
     /* Mobile Responsive */
     @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
       .nav-links {
-        display: none;
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.98);
+        backdrop-filter: blur(10px);
+        width: 250px;
+        padding: 2rem;
+        gap: 1.5rem;
+        box-shadow: -5px 0 30px rgba(0, 217, 255, 0.3);
+        border-left: 1px solid rgba(0, 217, 255, 0.3);
+        transition: right 0.3s ease-in-out;
+        height: calc(100vh - 70px);
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .nav-links a {
+        font-size: 1.1rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(0, 217, 255, 0.1);
       }
 
       .hero-content {
@@ -433,7 +489,11 @@
         <a href="https://linkedin.com/in/eng-wingard" title="LinkedIn">in</a>
         <a href="tel:+256785380800" title="Phone">☎</a>
       </div>
-      
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </nav>
 
@@ -456,10 +516,10 @@
             <a href="contact.html" class="btn btn-secondary">Lets Us Work Together</a>
           </div>
           <div class="social-icons">
-        <a href="https://github.com/Wingard01" title="GitHub">◉</a>
-        <a href="https://linkedin.com/in/eng-wingard" title="LinkedIn">in</a>
-        <a href="tel:+256785380800" title="Phone">☎</a>
-      </div>
+            <a href="https://github.com/Wingard01" title="GitHub">◉</a>
+            <a href="https://linkedin.com/in/eng-wingard" title="LinkedIn">in</a>
+            <a href="tel:+256785380800" title="Phone">☎</a>
+          </div>
         </div>
 
         <div class="hero-image">
@@ -487,6 +547,31 @@
   </footer>
 
   <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', function() {
+      this.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', function() {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!menuToggle.contains(event.target) && !navLinks.contains(event.target)) {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      }
+    });
+
     // Typed.js animation for rotating text
     document.addEventListener('DOMContentLoaded', function() {
       new Typed('.typed', {
