@@ -445,9 +445,9 @@
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="contact.html" class="active">Contact</a></li>
         </ul>
-   </nav>
+      </nav>
 
-         <div class="social-icons">
+      <div class="social-icons">
         <a href="https://github.com/Wingard01" title="GitHub">◉</a>
         <a href="https://linkedin.com/in/eng-wingard" title="LinkedIn">in</a>
         <a href="tel:+256785380800" title="Phone">☎</a>
@@ -622,7 +622,7 @@
         <p>© Copyright <strong>Simbulireki Wingard</strong>. All Rights Reserved</p>
       </div>
       <div class="social-links d-flex justify-content-center">
-         <a href="https://github.com/Wingard01" title="GitHub">◉</a>
+        <a href="https://github.com/Wingard01" title="GitHub">◉</a>
         <a href="https://linkedin.com/in/eng-wingard" title="LinkedIn">in</a>
         <a href="tel:+256785380800" title="Phone">☎</a>
       </div>
@@ -653,7 +653,66 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
   <!-- Main JS File -->
-     <script src="assets/js/main.js"></script> 
+  <script src="assets/js/main.js"></script> 
+
+  <!-- EmailJS Configuration and Form Handler -->
+  <script>
+    (function() {
+      // ⚠️ REPLACE THESE WITH YOUR ACTUAL EMAILJS CREDENTIALS ⚠️
+      // Get them from: https://dashboard.emailjs.com/
+      
+      // Initialize EmailJS with your Public Key
+      emailjs.init("zC-63oNkWdkqx5haH"); // Replace with your public key from Account page
+      
+      // Get form elements
+      const contactForm = document.getElementById('contact-form');
+      const submitBtn = document.getElementById('submit-btn');
+      const loadingDiv = document.querySelector('.loading');
+      const errorDiv = document.querySelector('.error-message');
+      const successDiv = document.querySelector('.sent-message');
+
+      // Form submission handler
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Show loading state
+        loadingDiv.style.display = 'block';
+        errorDiv.style.display = 'none';
+        successDiv.style.display = 'none';
+        submitBtn.disabled = true;
+
+        // Send email using EmailJS
+        emailjs.sendForm(
+          'service_xvfcvrx',    // Replace with your service ID from Email Services
+          'template_4e2sgmw',   // Replace with your template ID from Email Templates
+          this
+        )
+        .then(function(response) {
+          console.log('SUCCESS!', response.status, response.text);
+          
+          // Hide loading, show success
+          loadingDiv.style.display = 'none';
+          successDiv.style.display = 'block';
+          submitBtn.disabled = false;
+          
+          // Reset form after 5 seconds
+          setTimeout(function() {
+            contactForm.reset();
+            successDiv.style.display = 'none';
+          }, 5000);
+          
+        }, function(error) {
+          console.log('FAILED...', error);
+          
+          // Hide loading, show error
+          loadingDiv.style.display = 'none';
+          errorDiv.style.display = 'block';
+          errorDiv.textContent = 'Oops! Something went wrong. Please try again or email me directly at simbulirekiwinga@gmail.com';
+          submitBtn.disabled = false;
+        });
+      });
+    })();
+  </script>
 
   <!-- Mobile Menu Script -->
   <script>
@@ -661,26 +720,29 @@
     const mobileNavToggle = document.getElementById('mobile-nav-toggle');
     const navMenu = document.querySelector('.navmenu ul');
 
-    mobileNavToggle.addEventListener('click', function() {
-      this.classList.toggle('active');
-      navMenu.classList.toggle('active');
-    });
-
-    // Close menu when clicking on a link
-    document.querySelectorAll('.navmenu ul li a').forEach(link => {
-      link.addEventListener('click', function() {
-        mobileNavToggle.classList.remove('active');
-        navMenu.classList.remove('active');
+    if (mobileNavToggle) {
+      mobileNavToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+        navMenu.classList.toggle('active');
       });
-    });
 
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-      if (!mobileNavToggle.contains(event.target) && !navMenu.contains(event.target)) {
-        mobileNavToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-      }
-    });
+      // Close menu when clicking on a link
+      document.querySelectorAll('.navmenu ul li a').forEach(link => {
+        link.addEventListener('click', function() {
+          mobileNavToggle.classList.remove('active');
+          navMenu.classList.remove('active');
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', function(event) {
+        if (!mobileNavToggle.contains(event.target) && !navMenu.contains(event.target)) {
+          mobileNavToggle.classList.remove('active');
+          navMenu.classList.remove('active');
+        }
+      });
+    }
   </script>
 
+</body>
 </html>
